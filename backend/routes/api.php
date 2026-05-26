@@ -15,6 +15,10 @@ use App\Http\Controllers\ModuleRecordController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseOnlineCctvController;
 
+Route::get('/auth/login', function () {
+    return redirect()->away(rtrim(config('app.frontend_url'), '/') . '/login');
+});
+
 Route::post('/auth/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
